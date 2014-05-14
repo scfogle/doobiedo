@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="seedfinderverification" content="Open Sesame!" />
+    <title>Doobie Do's & Don'ts</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+
+</script>
+  </head>
+  <body>
+
+<div class="headertxt">
+<a class="navbar-brand" href="index.html"><img src="WEBLOGOG.png" class="imglogo2"><img src="peoples.png" class="imglogo2" style="margin-left:-20px;"></a>
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggles" data-toggle="dropdown" style="font-weight: bold;">STATES<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Report a Problem</a></li>
+          </ul>
+        </li>
+      </ul>
+
+</div>
+<div id="content"></div>
+
+<div class="apiwrap">
+    <div id="map" style="width: 450px; height: 300px;"></div></div>
+<div class="hometxt"><p class="introtxt">Laws and regulations regarding the possession, sale and cultivation of cannabis vary greatly across the United States of America. The Doobie Do's & Don'ts are your guide to easily understanding what you can do and where you can do it. </p><p class="maptxt">Click a state to learn more about the local Cannabis regulations and laws</p></div>
+<div class="names"><p class="namer" id="names"></p></div>
+</div>
+<div class="footery">
+  <p class="footz">Copyright Right Now, Designed and Authored By Schuyler Fogle. 2014.</p>
+</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <script src="js/bootstrap.min.js"></script>
+          <script src="raphael.js"></script>
+	<!-- <script src="scale.raphael.js"></script> -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="color.jquery.js"></script>
+	<script src="jquery.usmap.js"></script>
+	    	<script>
+$(document).ready(function() {
+    $('#map').usmap({});
+  });
+
+  $('#map').usmap({
+	    'stateStyles': {
+	      fill: '#e5b260', 
+	      "stroke-width": 0,
+	      'stroke' : '#036'
+	    },
+	    'stateHoverStyles': {
+	      fill: '#61ac51'
+	    },
+            
+            'labelBackingStyles': {
+              fill: '#e5b260',
+              "stroke-width": 0,
+            },
+                        'labelBackingHoverStyles': {
+              fill: '#61ac51',
+              "stroke-width": 0,
+            },
+            	    'click' : function(event, data) {
+                      
+	      $('#content')
+	        .load(data.name + '.html')
+                window.scrollTo(0, 0);
+	    },
+          
+	    
+	    'mouseover' : function(event, data) {
+	      $('#names')
+	        .text('[ '+ data.name +' ]');
+	    },
+            	    'mouseout' : function(event, data) {
+	      $('#names')
+	        .text('');
+	    }
+	  });
+	</script>
+
+  </body>
+</html>
